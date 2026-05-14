@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GAINZO | El Crunch del Gain</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-dark: #0a0a0a;
+            --bg-card: #151515;
+            --lime-green: #a8e010;
+            --caramel: #d4870a;
+            --text-light: #ffffff;
+            --text-gray: #a0a0a0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+        }
+
+        /* Navbar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 5%;
+            background-color: rgba(10, 10, 10, 0.95);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 1px solid #333;
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-light);
+            letter-spacing: 2px;
+        }
+
+        .cta-btn {
+            background-color: var(--lime-green);
+            color: var(--bg-dark);
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 4px;
+            font-weight: 800;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .cta-btn:hover {
+            background-color: #8cc30a;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(168, 224, 16, 0.4);
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 100vh;
+            padding: 6rem 5% 2rem;
+            gap: 2rem;
+        }
+
+        .hero-content {
+            flex: 1;
+        }
+
+        .hero-title {
+            font-size: 5rem;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+        }
+
+        .accent-green {
+            color: var(--lime-green);
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: var(--text-gray);
+            margin-bottom: 2rem;
+            max-width: 500px;
+        }
+
+        .hero-video {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+
+        .hero-video video {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 12px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.8);
+            border: 2px solid #333;
+        }
+
+        /* Stats Bar */
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            padding: 3rem 5%;
+            background: linear-gradient(90deg, #111, #1a1a1a, #111);
+            border-top: 1px solid #333;
+            border-bottom: 1px solid #333;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-family: 'Oswald', sans-serif;
+            font-weight: 700;
+            color: var(--lime-green);
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-gray);
+        }
+
+        /* Cross Section (Por Dentro) */
+        .anatomy {
+            padding: 6rem 5%;
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+        }
+
+        .anatomy-img {
+            flex: 1;
+        }
+
+        .anatomy-img img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(212, 135, 10, 0.15);
+        }
+
+        .anatomy-content {
+            flex: 1;
+        }
+
+        .anatomy-title {
+            font-size: 3.5rem;
+            margin-bottom: 2rem;
+            color: var(--caramel);
+        }
+
+        .layer-list {
+            list-style: none;
+        }
+
+        .layer-item {
+            margin-bottom: 1.5rem;
+            padding-left: 2rem;
+            position: relative;
+        }
+
+        .layer-item::before {
+            content: '■';
+            position: absolute;
+            left: 0;
+            color: var(--caramel);
+            font-size: 1.2rem;
+            top: -2px;
+        }
+
+        .layer-item h3 {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 0.2rem;
+        }
+
+        .layer-item p {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+        }
+
+        /* Full Poster Section */
+        .poster {
+            padding: 4rem 5%;
+            text-align: center;
+            background-color: var(--bg-card);
+        }
+
+        .poster img {
+            max-width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 3rem 5%;
+            border-top: 1px solid #333;
+            margin-top: 4rem;
+        }
+
+        .footer-logo {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2rem;
+            color: var(--text-gray);
+            margin-bottom: 1rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .hero, .anatomy {
+                flex-direction: column;
+                text-align: center;
+            }
+            .hero-title {
+                font-size: 3.5rem;
+            }
+            .hero-subtitle {
+                margin: 0 auto 2rem;
+            }
+            .stats {
+                flex-direction: column;
+                gap: 2rem;
+            }
+            .layer-item {
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">GAINZO</div>
+        <a href="#comprar" class="cta-btn">Comprar Ahora</a>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">EL CRUNCH<br><span class="accent-green">DEL GAIN.</span></h1>
+            <p class="hero-subtitle">Todo el sabor que amas. El perfil exacto del clásico, ahora con nutrición funcional para tu mejor versión.</p>
+            <a href="#comprar" class="cta-btn" style="font-size: 1.2rem; padding: 1rem 2.5rem;">Probar GAINZO</a>
+        </div>
+        <div class="hero-video">
+            <video autoplay loop muted playsinline>
+                <source src="VIDEO GAINZO.mp4" type="video/mp4">
+                Tu navegador no soporta el formato de video.
+            </video>
+        </div>
+    </section>
+
+    <section class="stats">
+        <div class="stat-item">
+            <div class="stat-number">20G</div>
+            <div class="stat-label">De Proteína</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">LOW</div>
+            <div class="stat-label">Sugar</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">HIGH</div>
+            <div class="stat-label">Crunch</div>
+        </div>
+    </section>
+
+    <section class="anatomy">
+        <div class="anatomy-content">
+            <h2 class="anatomy-title">POR DENTRO:</h2>
+            <ul class="layer-list">
+                <li class="layer-item">
+                    <h3>Cobertura de Chocolate Real</h3>
+                    <p>Sin sucedáneos. Cacao puro para un primer mordisco indulgente.</p>
+                </li>
+                <li class="layer-item">
+                    <h3>Caramelo Cremoso</h3>
+                    <p>Bajo en azúcar, textura perfecta que se funde en tu boca.</p>
+                </li>
+                <li class="layer-item">
+                    <h3>Crunch de Wafer y Arroz</h3>
+                    <p>La textura épica que hace que cada barra sea adictiva.</p>
+                </li>
+                <li class="layer-item">
+                    <h3>Base Proteica Premium</h3>
+                    <p>Blend de alta calidad para la recuperación de tus músculos.</p>
+                </li>
+            </ul>
+        </div>
+        <div class="anatomy-img">
+            <img src="image_928d57.jpg" alt="GAINZO Por Dentro">
+        </div>
+    </section>
+
+    <section class="poster" id="comprar">
+        <h2 style="font-size: 2.5rem; margin-bottom: 2rem;"><span class="accent-green">MÁS SABORES.</span> MISMO GAIN.</h2>
+        <img src="image_928d74.jpg" alt="Campaña GAINZO">
+    </section>
+
+    <footer>
+        <div class="footer-logo">GAINZO</div>
+        <p style="color: var(--text-gray); font-size: 0.9rem;">© 2026 GAINZO. Desarrollado para el rendimiento.</p>
+    </footer>
+
+</body>
+</html>
